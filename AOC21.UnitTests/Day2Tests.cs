@@ -1,9 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AOC21.UnitTests
 {
@@ -15,12 +10,9 @@ namespace AOC21.UnitTests
         {
             string input = Util.GetInput("Day2/Input.txt");
 
-            // Act
             int actual = Day2.SolvePart1(input);
-
             int expected = 1815044;
 
-            // Asset
             Assert.AreEqual(actual, expected);
         }
 
@@ -29,12 +21,9 @@ namespace AOC21.UnitTests
         {
             string input = Util.GetInput("Day2/Input.txt");
 
-            // Act
             int actual = Day2.SolvePart2(input);
-
             int expected = 1739283308;
 
-            // Asset
             Assert.AreEqual(actual, expected);
         }
     }
