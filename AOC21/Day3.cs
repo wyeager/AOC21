@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AOC21
 {
@@ -48,12 +46,14 @@ namespace AOC21
                 .Split("\r\n")
                 .ToList();
 
-            List<string> report2 = input
-                .Split("\r\n")
-                .ToList();
+            int oxygen = GetRating(report, (zeroes, half) => zeroes <= half);
+            int co2 = GetRating(report, (zeroes, half) => zeroes > half);
 
-            var zeroesPerCol = new int[report[0].Length];
+            return oxygen * co2;
+        }
 
+        private static int GetRating(List<string> report, Func<int, int, bool> comparison)
+        {
             int numCols = report[0].Length;
 
             for (int i = 0; i < numCols; i++)
@@ -64,40 +64,20 @@ namespace AOC21
 
                 for (int j = 0; j < report.Count; j++)
                 {
+                    // iterate through columns first by swapping j with i
                     if (report[j][i] == '0')
                     {
                         zeroes++;
                     }
                 }
 
-                char bit = zeroes <= report.Count / 2 ? '1' : '0';
+                int half = report.Count / 2;
+                char bit = comparison(zeroes, half) ? '1' : '0';
 
                 report = report.Where(n => n[i] == bit).ToList();
             }
 
-            for (int i = 0; i < numCols; i++)
-            {
-                if (report2.Count == 1) break;
-
-                int zeroes = 0;
-
-                for (int j = 0; j < report2.Count; j++)
-                {
-                    if (report2[j][i] == '0')
-                    {
-                        zeroes++;
-                    }
-                }
-
-                char bit = zeroes > report2.Count / 2 ? '1' : '0';
-
-                report2 = report2.Where(n => n[i] == bit).ToList();
-            }
-
-            int oxygen = Convert.ToInt32(report[0], 2);
-            int co2 = Convert.ToInt32(report2[0], 2);
-
-            return oxygen * co2;
+            return Convert.ToInt32(report[0], 2);
         }
     }
 }
