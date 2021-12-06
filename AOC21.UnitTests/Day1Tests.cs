@@ -30,7 +30,7 @@ namespace AOC21.UnitTests
         [TestMethod]
         public void Day1_Part2_Description_ReturnsCorrect()
         {
-            string input = Util.GetInput("Day1/Part2Description.txt");
+            string input = Util.GetInput("Day1/Part2Example.txt");
 
             int actual = Day1.SolvePart2(input);
             int expected = 5;
