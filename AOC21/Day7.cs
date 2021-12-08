@@ -15,7 +15,7 @@ namespace AOC21
 
         public static int SolvePart2(string input)
         {
-            return Solve(input, (i) => Enumerable.Range(0, i + 1).Sum());
+            return Solve(input, (i) => i * (i + 1) / 2);
         }
 
         public static int Solve(string input, Func<int, int> fuelCalc)
@@ -25,7 +25,6 @@ namespace AOC21
                 .Select(s => int.Parse(s))
                 .ToList();
 
-            int minPosition = 0;
             int minFuel = int.MaxValue;
 
             for (int i = 0; i <= positions.Max(); i++)
@@ -39,7 +38,6 @@ namespace AOC21
                 if (totalFuel < minFuel)
                 {
                     minFuel = totalFuel;
-                    minPosition = i;
                 }
             }
 
