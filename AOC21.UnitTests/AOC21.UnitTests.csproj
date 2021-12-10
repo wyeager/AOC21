@@ -22,4 +22,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Inputs\Day8\Example.txt" />
+	  <None Remove="Inputs\Day8\Input.txt" />
+	</ItemGroup>
 </Project>
