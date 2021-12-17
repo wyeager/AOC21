@@ -9,37 +9,84 @@ namespace AOC21
 {
     public class Day14
     {
-        public static int SolvePart1(string input)
+        public static long SolvePart1(string input)
+        {
+            return Solve(input, 10);
+        }
+
+        public static long SolvePart2(string input)
+        {
+            return Solve(input, 40);
+        }
+
+        private static long Solve(string input, int steps)
         {
             var (template, insertions) = ParseInput(input);
 
-            for (int step = 0; step < 10; step++)
-            {
-                string newTemplate = template[0].ToString();
+            var pairOccurrences = new Dictionary<string, long>();
+            var occurrences = new Dictionary<string, long>();
 
-                for (int i = 0; i < template.Length - 1; i++)
+            // initialize occurrences dictionary
+            for (int i = 0; i < template.Length; i++)
+            {
+                string s = template[i].ToString();
+                if (!occurrences.TryAdd(s, 1))
                 {
-                    string key = $"{template[i]}{template[i + 1]}";
-                    if (insertions.ContainsKey(key))
+                    occurrences[s]++;
+                }
+            }
+
+            // initialize pair occurrences dictionary
+            for (int i = 0; i < template.Length - 1; i++)
+            {
+                string curr = template[i].ToString();
+                string next = template[i + 1].ToString();
+                string key = curr + next;
+
+                if (!pairOccurrences.TryAdd(key, 1))
+                {
+                    pairOccurrences[key]++;
+                }
+            }
+
+            for (int step = 0; step < steps; step++)
+            {
+                var newPairOccurences = new Dictionary<string, long>(pairOccurrences);
+
+                foreach (var (pair, num) in pairOccurrences)
+                {
+                    if (insertions.ContainsKey(pair) && pairOccurrences[pair] > 0)
                     {
-                        newTemplate += insertions[key] + template[i + 1];
+                        string newPair1 = $"{pair[0]}{insertions[pair]}";
+                        string newPair2 = $"{insertions[pair]}{pair[1]}";
+
+                        // the existing pairs get broken up by the insertions :^(
+                        newPairOccurences[pair] -= num;
+
+                        // but <num> new pairs get created
+                        if (!newPairOccurences.TryAdd(newPair1, num))
+                        {
+                            newPairOccurences[newPair1] += num;
+                        }
+
+                        if (!newPairOccurences.TryAdd(newPair2, num))
+                        {
+                            newPairOccurences[newPair2] += num;
+                        }
+
+                        // increment the occurrences of the newly inserted characters
+                        if (!occurrences.TryAdd(insertions[pair], num))
+                        {
+                            occurrences[insertions[pair]] += num;
+                        }
                     }
                 }
 
-                template = newTemplate;
+                pairOccurrences = newPairOccurences;
             }
 
-            var occurrences = new Dictionary<char, int>();
-            for (int i = 0; i < template.Length; i++)
-            {
-                if (!occurrences.TryAdd(template[i], 1))
-                {
-                    occurrences[template[i]]++;
-                }
-            }
-
-            int min = int.MaxValue;
-            int max = 0;
+            long min = long.MaxValue;
+            long max = 0;
             foreach (var (_, num) in occurrences)
             {
                 min = Math.Min(num, min);
