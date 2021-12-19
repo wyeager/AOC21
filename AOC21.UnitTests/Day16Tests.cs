@@ -6,7 +6,7 @@ namespace AOC21.UnitTests
     public class Day16Tests
     {
         [TestMethod]
-        public void Day16_Part1_ReturnsCorrect()
+        public void Day16_Part1()
         {
             string input = Util.GetInput("Day16/Input.txt");
 
@@ -17,7 +17,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part1ExampleLiteral_ReturnsCorrect()
+        public void Day16_Part1ExampleLiteral()
         {
             string input = Util.GetInput("Day16/ExampleLiteral.txt");
 
@@ -28,7 +28,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part1ExampleOperator_ReturnsCorrect()
+        public void Day16_Part1ExampleOperator()
         {
             string input = Util.GetInput("Day16/ExampleOperator.txt");
 
@@ -39,7 +39,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2_ReturnsCorrect()
+        public void Day16_Part2()
         {
             string input = Util.GetInput("Day16/Input.txt");
 
@@ -50,7 +50,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2ExampleSum_ReturnsCorrect()
+        public void Day16_Part2ExampleSum()
         {
             string input = Util.GetInput("Day16/ExampleSum.txt");
 
@@ -61,7 +61,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2ExampleProduct_ReturnsCorrect()
+        public void Day16_Part2ExampleProduct()
         {
             string input = Util.GetInput("Day16/ExampleProduct.txt");
 
@@ -72,7 +72,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2ExampleMin_ReturnsCorrect()
+        public void Day16_Part2ExampleMin()
         {
             string input = Util.GetInput("Day16/ExampleMin.txt");
 
@@ -83,7 +83,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2ExampleMax_ReturnsCorrect()
+        public void Day16_Part2ExampleMax()
         {
             string input = Util.GetInput("Day16/ExampleMax.txt");
 
@@ -94,7 +94,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2ExampleLessThan_ReturnsCorrect()
+        public void Day16_Part2ExampleLessThan()
         {
             string input = Util.GetInput("Day16/ExampleLessThan.txt");
 
@@ -105,7 +105,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2ExampleGreaterThan_ReturnsCorrect()
+        public void Day16_Part2ExampleGreaterThan()
         {
             string input = Util.GetInput("Day16/ExampleGreaterThan.txt");
 
@@ -116,7 +116,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2ExampleEqual_ReturnsCorrect()
+        public void Day16_Part2ExampleEqual()
         {
             string input = Util.GetInput("Day16/ExampleEqual.txt");
 
@@ -127,7 +127,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day16_Part2Example_ReturnsCorrect()
+        public void Day16_Part2Example()
         {
             string input = Util.GetInput("Day16/Example.txt");
 

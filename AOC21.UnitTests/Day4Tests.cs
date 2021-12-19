@@ -11,7 +11,7 @@ namespace AOC21.UnitTests
     public class Day4Tests
     {
         [TestMethod]
-        public void Day4_Part1_ReturnsCorrect()
+        public void Day4_Part1()
         {
             string input = Util.GetInput("Day4/Input.txt");
 
@@ -22,7 +22,7 @@ namespace AOC21.UnitTests
         }
 
         [TestMethod]
-        public void Day4_Part2_ReturnsCorrect()
+        public void Day4_Part2()
         {
             string input = Util.GetInput("Day4/Input.txt");
 
