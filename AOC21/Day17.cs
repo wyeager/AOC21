@@ -6,14 +6,16 @@ namespace AOC21
 {
     public class Day17
     {
-        public static (long, long) SolvePart1(string input)
+        public static long SolvePart1(string input)
         {
-            return Solve(input);
+            var (maxY, _) = Solve(input);
+            return maxY;
         }
 
-        public static (long, long) SolvePart2(string input)
+        public static long SolvePart2(string input)
         {
-            return Solve(input);
+            var (_, initialVelocitiesCount) = Solve(input);
+            return initialVelocitiesCount;
         }
 
 
