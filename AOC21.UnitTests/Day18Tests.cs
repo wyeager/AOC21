@@ -10,7 +10,7 @@ namespace AOC21.UnitTests
         {
             string input = Util.GetInput("Day18/Input.txt");
 
-            var actual = Day18.SolvePart1(input);
+            long actual = Day18.SolvePart1(input);
             long expected = 4124;
 
             Assert.AreEqual(actual, expected);
@@ -21,7 +21,7 @@ namespace AOC21.UnitTests
         {
             string input = Util.GetInput("Day18/Example.txt");
 
-            var actual = Day18.SolvePart1(input);
+            long actual = Day18.SolvePart1(input);
             long expected = 4140;
 
             Assert.AreEqual(actual, expected);
@@ -32,7 +32,7 @@ namespace AOC21.UnitTests
         {
             string input = Util.GetInput("Day18/Input.txt");
 
-            var actual = Day18.SolvePart2(input);
+            long actual = Day18.SolvePart2(input);
             long expected = 4673;
 
             Assert.AreEqual(actual, expected);
@@ -43,7 +43,7 @@ namespace AOC21.UnitTests
         {
             string input = Util.GetInput("Day18/Example.txt");
 
-            var actual = Day18.SolvePart2(input);
+            long actual = Day18.SolvePart2(input);
             long expected = 3993;
 
             Assert.AreEqual(actual, expected);
